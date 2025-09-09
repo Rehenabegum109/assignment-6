@@ -65,7 +65,7 @@ const showPlantsCategory= (plants) => {
   plants.forEach(plant =>{
     plantsContainer.innerHTML +=`
     <div class =" max-w-full max-h-120 rounded-xl bg-white p-5 ">
-    <img class="w-65 max-h-40 rounded-lg " src="${plant.image}">
+    <img class="md:w-65 w-90 h-40 md:max-h-40 rounded-lg " src="${plant.image}">
     <h1  onclick="loadDetails(${plant.id})" class ="text-xl font-semibold pb-1">${plant.name}</h1>
     <p class="pb-1 text-sm">${plant.description}</p>
     <div class ="flex justify-between pb-1">
@@ -73,13 +73,17 @@ const showPlantsCategory= (plants) => {
     <p class ="rounded-lg bg-[#CFF0DC] px-2">${plant.category}</p>
     </div>
     <div>
-    <p id ="plant-price">$${plant.price}</p>
+    <p class="plant-price"> ${plant.price}</p>
     </div>
     </div>
-    <button  class ="rounded-xl bg-green-600 w-full p-2 text-white call-btn ">Add to cart</button>
+    <button onclick="addToHistory('${plant.name}','${plant.price}')" class ="rounded-xl bg-green-600 w-full p-2 text-white ">Add to cart</button>
     </div>
     `;
+   
   });
+  
+
+
 };
 const showLoading = () => {
     plantsContainer.innerHTML = `
@@ -100,7 +104,7 @@ const loadDetails =async(id) =>{
 }
 
 const displayDetails =(data) =>{
-  console.log(data)
+  
    
     detailsBox.innerHTML =`<h3 class="text-lg font-bold">${data.name}</h3>
     <img class="w-full mx-h-30" src="${data.image}" alt=""/>
@@ -110,7 +114,7 @@ const displayDetails =(data) =>{
     
     <div class="modal-action">
       <form method="dialog">
-        <!-- if there is a button in form, it will close the modal -->
+        
         <button class="btn">Close</button>
       </form>
     </div>`;
@@ -120,49 +124,91 @@ const displayDetails =(data) =>{
   document.getElementById("my_modal_1").showModal()
 }
 
+    let totaltreess =0
+ let total =0;
+ const addToHistory =(name,price) =>{
+  totaltreess=1;
+  total =Number(total) +
+Number(price)
+const div =document.createElement('div')
 
-
-plantsContainer.addEventListener('click',(e) =>{
-  
-  if(e.target.innerText ==='Add to cart'){
-    const title = e.target.parentNode.children[1].innerText;
-    console.log(title);
-    const price =document.getElementById('plant-price').innerText;
-    console.log(price);
-    alert(`${title} has been added to the card`)
-    
-    const add =document.createElement("add");
-    add.innerHTML =`
+div.innerHTML =`
     <div class=" bg-[#e2f5e0] p-1 my-2 mx-2 rounded-md flex justify-between ">
     <div>
-    <h1 class="font-bold price">${title}</h1>
-    <p class="text-sm">${price}X1</p>
+    <h1 class="font-bold price">'${name}'</h1>
+    <p class="text-sm">${price}</p>
+    <p>${totaltreess}</p>
     </div>
-    <div>
-    <button class="text-2xl text-red-500 delete-btn"><i class="fa-regular fa-rectangle-xmark"></i></button>
+     <div>
+     <button class="text-2xl text-red-500 delete-btn"><i class="fa-regular fa-rectangle-xmark"></i></button>
+     </div>
     </div>
+    <div class="btn border-t border-gray-400">
+    <div class ="flex gap-3 justify-end mr-3">
+    <h1>Total</h1>
+    
+    <p>${total}</p>
+    </div>
+    
     </div>
     `;
+    cartsContainer.appendChild(div);
+    const deleteBtn =div.querySelector(".delete-btn");
+     deleteBtn.addEventListener('click',() =>{
+        div.remove();
+     })
+ }
+   
+   
+  
 
-    cartsContainer.appendChild(add);
-    const deleteBtn =add.querySelector(".delete-btn");
-    deleteBtn.addEventListener('click',() =>{
-      add.remove();
-    })
 
+
+
+
+  
+
+// plantsContainer.addEventListener('click',(e) =>{
+  
+//   if(e.target.innerText ==='Add to cart'){
+//      const title = e.target.parentNode.children[1].innerText;
+//     console.log(title);
+//     const price =document.querySelector('.plant-price').innerText
+//     console.log(price);
+//     alert(`${title} has been added to the card`)
+    
+//    const add =document.createElement("add");
+//     add.innerHTML =`
+//     <div class=" bg-[#e2f5e0] p-1 my-2 mx-2 rounded-md flex justify-between ">
+//     <div>
+//     <h1 class="font-bold price">${title}</h1>
+//     <p class="text-sm">${price}X1</p>
+//     </div>
+//      <div>
+//      <button class="text-2xl text-red-500 delete-btn"><i class="fa-regular fa-rectangle-xmark"></i></button>
+//     </div>
+//     </div>
+//      `;
+
+//      cartsContainer.appendChild(add);
+//     const deleteBtn =add.querySelector(".delete-btn");
+//      deleteBtn.addEventListener('click',() =>{
+//        add.remove();
+//      })
+//   let total = 0;
+//   const totalPrice =document.getElementById("total-price");
+//   const prices =parseFloat(plantsContainer.querySelector('.plant-price').innerText)
+//   total +=prices;
+//   totalPrice.innerText ='Total : '+total
     
 
   
 
-  };
+//    };
   
-    // let total =0;
-    // const totalEi =document.getElementById(total);
-    // const prices =parseInt(document.getElementById('plant-price').innerText)
-    // total +=prices;
-    // totalEi.innerText =total;
+   
 
- });
+//  });
  
 
     

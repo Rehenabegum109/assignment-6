@@ -18,19 +18,36 @@
 <!-- font-awesome -->
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body class="max-w-full">
+<body class="max-w-[100%]">
+
     <header>
-      <div class="navbar bg-base-100 shadow-sm bg-green-700 max-w-8xl mx-auto">
+      <div class="navbar bg-base-100 shadow-sm bg-green-700  md:max-w-8xl mx-auto">
   <div class="navbar-start">
     <div class="dropdown">
       <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"> </svg>
       </div>
+      <ul
+        tabindex="0"
+        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+        <li><a>About</a></li>
+      <li>
+        <details>
+          <summary>Gallery</summary>
+          <ul class="p-2">
+            <li><a>Submenu 1</a></li>
+            <li><a>Submenu 2</a></li>
+          </ul>
+        </details>
+      </li>
+      <li><a>Plant a Tree</a></li>
+    </ul>
+      </ul>
       
     </div>
     <a class="btn btn-ghost text-xl text-white px-10">Green Earth</a>
   </div>
-  <div class="navbar-center hidden lg:flex">
+  <div class="navbar-center  hidden lg:flex">
     <ul class="menu menu-horizontal px-1 text-white">
       <li><a>About</a></li>
       <li>
@@ -50,12 +67,12 @@
   </div>
 </div>
 <!-- banner section -->
- <section class="flex justify-between bg-[#CFF0DC] items-center">
+ <section class="flex justify-between   bg-[#CFF0DC] items-center">
     <div>
-        <img src="./assets/hero-leaf1.png" alt="">
+        <img  src="./assets/hero-leaf1.png" alt="">
     </div>
     <div >
-        <h1 class="text-4xl  font-bold">Plant a Tree, Grow a Future</h1>
+        <h1 class="lg:text-4xl text-2xl font-bold">Plant a Tree, Grow a Future</h1>
         <h3 class="text-lg ">Join our mission to plant 1 million trees and make the Earth greener for future
 generations.</h3>
 <button class=" rounded-xl bg-yellow-300 px-5 py-3 mt-8 text-green-700">Get Involved</button>
@@ -67,13 +84,13 @@ generations.</h3>
 
     </header>
 
-    <main class="bg-[#F0FDF4] grid grid-cols-5 max-w-8xl mx-auto pt-20 px-25   gap-5 ">
+    <main class="bg-[#F0FDF4] grid md:grid-cols-5 grid-cols-1 max-w-8xl mx-auto pt-20 px-25   gap-5 ">
       
 
       
-      <div id="Category-container" class="col-span-1" >
+      <div id="Category-container" class=" md:col-span-1 " >
         <h1 class="font-bold"> Categories</h2> </div>
-          <div id="plantsContainer" class="grid grid-cols-3 col-span-3 gap-5">
+          <div id="plantsContainer" class="grid md:grid-cols-3 grid-cols-1  md:col-span-3 col-span-1 gap-5 ">
             <h1 class="font-bold text-2xl">Choose your trees</h1>
             <!-- <div class="bg-red-400">Laoding....</div> -->
 
@@ -83,11 +100,15 @@ generations.</h3>
             <h1 class="p-3 text-bold">Your Cart</h1>
 
             </div>
-            <div  id="cartContainer"></div>
-           
-        <div>
-          <h2 class="text-right" >Total: <span id="total">0</span> TK</h2>
+            <div  id="cartContainer">
+              
+            </div>
+            
+              
+          
           </div>
+           
+        
     </main>
     
     <!-- Open the modal using ID.showModal() method -->
@@ -102,9 +123,10 @@ generations.</h3>
      
 
     <!-- About Campaign -->
-     <section class="bg-[#F0FDF4] pt-20 ">
+     <section class="bg-[#F0FDF4] pt-20 m">
       <h1 class="text-2xl font-semibold text-center">About the Campaign</h1>
-      <div class="flex justify-between items-center pt-7 max-w-3xl mx-auto gap-10 " >
+      <div class="md:flex md:justify-between md:items-center  pt-7 md:max-w-3xl
+      max-w-xl mx-auto gap-10 " >
       <div>
         <img class="max-w-100 max-h-100" src="./assets/about.png" alt="">
       </div>
@@ -120,16 +142,16 @@ generations.</h3>
      <!-- Our Impact Section  -->
       <main class=" bg-[#CFF0DC]">
         <h1 class="text-2xl font-semibold text-center pt-15">Our Impact</h1>
-        <div class="flex justify-around items-center px-20 py-20 ">
-        <div class="rounded-lg bg-white py-5 px-25 text-green-700 " >
+        <div class="flex justify-around items-center px-5 py-5 md:px-20 md:py-20 ">
+        <div class="rounded-lg bg-white py-5 px-3  md:px-25 text-green-700 " >
           <span class="font-bold">500K+</span>
           <p>Trees Planted</p>
         </div>
-        <div class="rounded-lg bg-white py-5 px-25 text-green-700">
+        <div class="rounded-lg bg-white py-5 px-3 md:px-25 text-green-700">
           <span class="font-bold">120+</span>
           <p>Communities Involved</p>
         </div>
-        <div class="rounded-lg bg-white py-5 px-25 text-green-700">
+        <div class="rounded-lg bg-white py-5 px-3 md:px-25 text-green-700">
           <span class="font-bold">30+</span>
           <p>Countries Reached</p>
         </div>
@@ -145,10 +167,12 @@ generations.</h3>
   <input  type="email" class="input" placeholder="Your Name" />
 <input type="email" class="input" placeholder="Email" />
 <select class="select">
-  <option disabled selected>Pick a color</option>
-  <option>Crimson</option>
-  <option>Amber</option>
-  <option>Velvet</option>
+  <option disabled selected>Number Of Trees</option>
+  <option>Mango Tree</option>
+  <option>Guava Tree</option>
+  <option>Gulmohar</option>
+  <option>Champa</option>
+  <option>Banyan Tree</option>
 </select>
 
   <button class="btn bg-yellow-400 rounded-xl mt-4  ">Donate Now</button>
